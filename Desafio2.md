@@ -37,8 +37,12 @@ provider "docker" {
 
 Essa parte aqui que é um pouco diferente de configurações mais comuns, pois o terraform está se baseando em uma dockerfile para criar o container, essa dockerfile possui as seguintes configurações:
 
-**FROM nginx:latest** - Aqui estou buscando a ultima versão disponível do nginx.<br>
-**COPY ./html/index.html /usr/share/nginx/html/index.html** - Nessa parte estou copiando o index.html customizado e adicionando ele dentro do container.<br>
+Na primeira linha  estou buscando a ultima versão disponível do nginx.<br>
+Na segunda linha estou copiando o index.html customizado e adicionando ele dentro do container.<br>
+```dockerfile
+FROM nginx:latest 
+COPY ./html/index.html /usr/share/nginx/html/index.html 
+```
 
 O terraform le as configurações definidas no arquivo dockerfile acima e realiza a criação do container
 
